@@ -16,9 +16,11 @@ int minCoins(int sum,int n,int *coins,vector <int> &dp){
     for(int i=0;i<n;i++){
         int recursionRes=minCoins(sum-coins[i],n,coins,dp);
    if(recursionRes== 1000000){ 
-       continue;
+       
+    }else{
+        result=min(result, 1+recursionRes);
     }
-        result=min(result, 1+recursionRes);    
+            
     }
     return dp[sum]=result;
 }

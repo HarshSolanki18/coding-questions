@@ -31,7 +31,7 @@ int main(){
     }
     else if (n==2)
     {
-        cout<<stones[1]-stones[0];
+        cout<<abs(stones[1]-stones[0]);
     }else{
         cout<<minCost(stones,dp,n-1);    
     }
