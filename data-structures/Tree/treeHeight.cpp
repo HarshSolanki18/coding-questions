@@ -20,7 +20,7 @@ int FindH(BST *root){
     }
     int leftH=FindH(root->left);
     int rightH=FindH(root->right);
-    return max(leftH,rightH)+1;
+     return max(leftH,rightH)+1;
 }
 void traverse(BST *root){
     if(root!=NULL){
