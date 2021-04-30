@@ -8,26 +8,28 @@ using namespace std;
 #define pb                  push_back
 #define vs                  vector <string>
 int main(){
-    int t,l;
+    int t=0,l=0;
     string s;
     cin>>t;
     while(t--){
         cin>>l;
         cin>>s;
+        float per=0;
         int c=0;
         loop(i,0,s.size()-1){
             if(s[i]=='1'){
                 c++;
             }
         }
-        float per=c*100/l;
+        per=c*100/l;
          
         if(per>=50){
             cout<<"YES"<<endl;
         }else{
             per=0;
             c=0;
-            loop(i,0,s.size()-2){
+            if(s.size()>3){
+                loop(i,0,s.size()-2){
                 if(s[i]=='1'){
                     c++;
                     per=c*100/(i+1);
@@ -37,9 +39,12 @@ int main(){
                     break;
                 }   
             }
+            
+            }
             if(per<50){
                 cout<<"NO"<<endl;
             }
+            
             
         }
     }
