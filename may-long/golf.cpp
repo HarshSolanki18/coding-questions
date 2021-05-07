@@ -8,39 +8,28 @@ using namespace std;
 #define pb                  push_back
 #define vs                  vector <string>
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);  
     int t;
     cin>>t;
     while(t--){
         ll n,x,k;
-        cin>>n>>x>>k;
-        vi fw,bw;
-        ll val=0,i=0;
-        while(val<n+1){
-            val=k*i;
-            fw.pb(val);
-            i++;
-        }
-        ll val2=n+1,j=0;
-        while(val2>0){
-            val2=n+1-j*k;
-            bw.pb(val2);
-            j++;
-        }
+        cin>>n>>x>>k;        
         int c=0;
-        if(binary_search(fw.begin(),fw.end(),x)){
-            c=1;
+        if(x>=0 and x<=n+1){
+            if(x%k==0){
+                c=1;
+            }
         }
-        
-        if(c!=1){
-            loop(i,0,bw.size()-1){
-                if(x==bw[i]){
+         if(c!=1){
+            if(x>=0 and x<=n+1){
+                if((n+1-x)%k==0){
                     c=1;
-                    break;
                 }
             }
         }
-        if(c==1) cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        if(c==1) cout<<"YES"<<"\n";
+        else cout<<"NO"<<"\n";
 
     }
     
