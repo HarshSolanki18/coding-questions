@@ -30,12 +30,7 @@ int main(){
         if(binary_search(fw.begin(),fw.end(),x)){
             c=1;
         }
-        loop(i,0,fw.size()-1){
-            if(x==fw[i]){
-                c=1;
-                break;
-            }
-        }
+        
         if(c!=1){
             loop(i,0,bw.size()-1){
                 if(x==bw[i]){
