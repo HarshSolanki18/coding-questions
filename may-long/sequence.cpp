@@ -8,12 +8,26 @@ using namespace std;
 #define pb                  push_back
 #define vs                  vector <string>
 #define endl                "\n"
+
+
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);  
-    int arr[]={1,2,3,4};
-    loop(i,0,3){
-        cout<<arr[i]<<" ";
+    ll t;
+    cin>>t;
+    while(t--){
+        ll k,sum=0;
+        cin>>k;
+        vi v;
+        loop(i,1,(2*k)+1){
+            v.pb(k+(i*i));
+        }
+         
+        loop(i,0,(2*k)-1){
+            
+            sum+=__gcd(v[i],v[i+1]);
+        }
+        cout<<sum<<endl;
     }
     return 0;
 }
