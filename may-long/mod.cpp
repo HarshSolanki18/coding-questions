@@ -9,28 +9,28 @@ using namespace std;
 #define vs                  vector <string>
 #define endl                "\n"
 
-ll gcd(ll a,ll b){
-    if(b==0){
-        return a;
-    }
-    return gcd(a,a%b);
-}
+
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);  
     ll t;
     cin>>t;
     while(t--){
-        ll k,sum=0;
-        cin>>k;
-        vi v;
-        
-         
-        loop(i,1,(2*k)){
-            
-            sum+=gcd(k+i*i,k+(i+1)*(i+1));
+        ll n,m;
+        cin>>n>>m;
+        ll p=0;
+        loop(i,1,n-1){
+            loop(j,2,n){
+                if(i<j){
+                    if(((m%i)%j)==((m%j)%i)){
+                    p++;
+                
+                }
+                }
+                
+            }
         }
-        cout<<sum%mod<<endl;
+        cout<<p<<endl;        
     }
     return 0;
 }

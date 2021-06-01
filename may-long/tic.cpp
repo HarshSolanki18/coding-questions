@@ -9,7 +9,7 @@ using namespace std;
 #define vs                  vector <string>
 #define endl                "\n"
 
-void checkWinner(char bd[][3],int x,int y){
+void checkWinner(char bd[][3],int x,int y,int blank){
     bool winx=false,winy=false;
     //row X and O
    loop(i,0,2){
@@ -33,20 +33,33 @@ void checkWinner(char bd[][3],int x,int y){
        cout<<3<<endl;
        return;
    }
-   if(winx){
+   if(winx==1 and winy==0 and x>y){
        cout<<1<<endl;
        return;
    }
-   if(winy){
+   if(winx==1 and winy==0 and x>y){
        cout<<1<<endl;
        return;
    }
-   cout<<2<<endl;
+   if(winx==0 and winy==1 and x==y){
+       cout<<1<<endl;
+       return;
+   }
+   if(winx==0 and winy==0 and blank==0){
+       cout<<1<<endl;
+       return;
+   }
+   if(winx==0 and winy==0 and blank>0){
+       cout<<2<<endl;
+       return;
+   }
+   
+   cout<<3<<endl;
 
 }
 
 void isNotValid(char bd[][3]){
-    int x=0,y=0;
+    int x=0,y=0,blank=0;
     loop(i,0,2){
         if(bd[i][0]=='X') x++;
         if(bd[i][0]=='O') y++;
@@ -58,15 +71,20 @@ void isNotValid(char bd[][3]){
         if(bd[i][2]=='O') y++;
        
        }
-     if(x>y+1){
+       blank=x=blank-x-y;
+     if(x-y<0){
             cout<<3<<endl;
             return;
         }
-        if(y>x+1){
+        if(x-y>1){
             cout<<3<<endl;
             return;
         }
-    checkWinner(bd,x,y); 
+        if(x==0 and y==0 and blank==9){
+            cout<<2<<endl;
+            return;
+        }
+    checkWinner(bd,x,y,blank); 
 }
 int main(){
     ios_base::sync_with_stdio(false);
