@@ -9,13 +9,19 @@ using namespace std;
 #define vs                  vector <string>
 #define endl                "\n"
 
-int noConsOnes(int n){
+void noConsOnes(int n,string osf){
     //base case
+     if(n==0){
+         cout<<osf<<endl;
+         return;
+     }
 
+    noConsOnes(n-1,osf+"0");
+    if(osf.back()=='1'){
 
-    //assumption
-
-
+    }else{
+        noConsOnes(n-1,osf+"1");
+    }
     //self work
 
     
@@ -27,6 +33,6 @@ int main(){
     cin.tie(NULL);  
     int n;
     cin>>n;
-
+    noConsOnes(n," ");
     return 0;
 }
